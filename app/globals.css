@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; background: #0b1230; color-scheme: dark; }
+body { background: #0b1230; color: #fff; font-family: var(--font-body), system-ui, sans-serif; overflow-x: hidden; }
+h1, h2, h3, .font-display { font-family: var(--font-display), system-ui, sans-serif; letter-spacing: -0.03em; }
+:focus-visible { outline: 3px solid #f7b500; outline-offset: 3px; border-radius: 8px; }
+::selection { background: #f7b500; color: #0b1230; }
+
+/* tile tones + mini-UI building blocks (use currentColor so they work on any tile) */
+.t-cobalt { background: #2a47d9; color: #fff; } .t-amber { background: #f7b500; color: #0b1230; }
+.t-white { background: #fff; color: #0b1230; } .t-sand { background: #efe6cf; color: #0b1230; }
+.m1 { background: color-mix(in srgb, currentColor 12%, transparent); }
+.m2 { background: color-mix(in srgb, currentColor 28%, transparent); }
+.m3 { background: color-mix(in srgb, currentColor 55%, transparent); }
+.mA { background: #f7b500; color: #0b1230; } .mD { background: #0b1230; color: #fff; }
+.tile { transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s; }
+.tile:hover { transform: translateY(-8px) rotate(-.6deg); box-shadow: 0 30px 60px rgba(0,0,0,.45); }
+
+/* prayer flags */
+.flag { position: absolute; width: clamp(12px, 2.3vw, 26px); height: clamp(16px, 3vw, 34px); margin-left: -6px; transform-origin: top center; animation: sway 3.6s ease-in-out infinite; }
+@keyframes sway { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(6deg); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+.orbit { animation: spin 26s linear infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.caret { animation: blink 1s steps(1) infinite; }
+
+/* scroll reveal: pure CSS, only where supported */
+@keyframes rise { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
+@supports (animation-timeline: view()) {
+  .reveal { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 35%; }
+}
+@media (prefers-reduced-motion: reduce) { .flag, .orbit, .caret, .reveal { animation: none; } html { scroll-behavior: auto; } }
+
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .plus { transform: rotate(45deg); }
