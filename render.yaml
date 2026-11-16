@@ -1,0 +1,17 @@
+# Render Blueprint: Static Site (free). Push the project to GitHub, then
+# Render dashboard > New > Blueprint, and pick the repo.
+services:
+  - type: web
+    name: freelancer-baucha
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./out
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: NEXT_PUBLIC_SITE_URL
+        value: https://freelancerbaucha.com.np # change to your real domain
+    headers:
+      - path: /_next/static/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
