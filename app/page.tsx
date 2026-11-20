@@ -200,7 +200,7 @@ export default function Home() {
             <p className="mx-auto mt-5 max-w-lg text-lg font-medium opacity-80">Tell me what you want to build. I reply with questions and a fixed quote.</p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <a href={waLink()} className={`${btn} bg-[#0b1230] text-white hover:bg-[#1c2a5c]`}>Chat on WhatsApp</a>
-              <a href="tel:+9779740871495" className={`${btn} border-2 border-[#0b1230] hover:bg-[#0b1230]/10`}>Call 9740871495</a>
+              <a href="tel:+9779717530487" className={`${btn} border-2 border-[#0b1230] hover:bg-[#0b1230]/10`}>Call 9717530487</a>
             </div>
           </div>
           <svg viewBox="0 0 1440 200" preserveAspectRatio="none" className="absolute inset-x-0 bottom-0 h-36 w-full md:h-48" aria-hidden>
